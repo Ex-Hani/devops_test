@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Перезапустить сервис nginx
+      service:
+        name: nginx
+        state: restarted

@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Проверить состояние службы nginx
+      command: systemctl status nginx
+      register: nginx_status
+
+    - debug:
+        msg: "Статус службы Nginx: {{ nginx_status.stdout }}"

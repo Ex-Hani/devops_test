@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Установить пакет nginx
+      apt:
+        name: nginx
+        state: present
