@@ -1,7 +1,12 @@
----
 - hosts: localhost
   tasks:
-    - name: Установить пакет nginx
-      apt:
-        name: nginx
-        state: present
+    - name: Check install nginx
+      shell: dpkg -l | grep nginx
+      register: nginx_status
+
+    - name: Message about install nginx
+      debug:
+        msg: "Nginx already installed"
+      when: nginx_status.rc == 0
+  vars:
+    ansible_verbosity: 0
